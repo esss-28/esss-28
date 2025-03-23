@@ -4,7 +4,7 @@
 - 💞️ I’m looking to collaborate on front-end projects
 - 📫 How to reach me sehersiddiqui2812@gmail.com
 - 😄 Pronouns: (she / her)
-- ⚡ Fun fact: I also love to eat, sleep, talk, swim
+- ⚡ Fun fact: I also love to talk and swim
 
 <!---
 esss-28/esss-28 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
