@@ -1,491 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seher Siddiqui - ML Engineer & Developer</title>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap');
-        
-        :root {
-            --primary: #00D9FF;
-            --secondary: #FF2A6D;
-            --dark: #0D1117;
-            --darker: #080B10;
-            --light: #FFFFFF;
-            --gray: #8B949E;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            font-family: 'JetBrains Mono', monospace;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        header {
-            text-align: center;
-            padding: 4rem 0;
-            position: relative;
-        }
-        
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            box-shadow: 0 0 30px var(--primary);
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            padding: 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .profile-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px var(--secondary);
-        }
-        
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
-        }
-        
-        .typing-container {
-            min-height: 60px;
-            margin-bottom: 2rem;
-        }
-        
-        .typing-text {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .section {
-            background: rgba(13, 17, 23, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-        
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 217, 255, 0.1);
-        }
-        
-        h2 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        h2::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            margin-left: 1rem;
-            background: linear-gradient(90deg, var(--primary), transparent);
-        }
-        
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-        
-        .tech-item {
-            background: rgba(0, 217, 255, 0.1);
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 217, 255, 0.3);
-        }
-        
-        .tech-item:hover {
-            background: rgba(0, 217, 255, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.2);
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .stat-card {
-            background: linear-gradient(145deg, rgba(13, 17, 23, 0.8), rgba(8, 11, 16, 0.8));
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 217, 255, 0.2);
-        }
-        
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        .hackathon-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
-        }
-        
-        .hackathon-table th, .hackathon-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .hackathon-table th {
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .hackathon-table tr:hover {
-            background: rgba(0, 217, 255, 0.05);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: rgba(0, 217, 255, 0.1);
-            color: var(--primary);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 217, 255, 0.3);
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .social-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.2), transparent);
-            transition: all 0.5s ease;
-        }
-        
-        .social-link:hover::before {
-            left: 100%;
-        }
-        
-        .social-link:hover {
-            transform: translateY(-5px) rotate(5deg);
-            box-shadow: 0 10px 20px rgba(0, 217, 255, 0.3);
-            color: var(--secondary);
-        }
-        
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-        
-        .badge {
-            background: linear-gradient(145deg, rgba(13, 17, 23, 0.8), rgba(8, 11, 16, 0.8));
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: 1px solid rgba(0, 217, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.2);
-        }
-        
-        .counter {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(0, 217, 255, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(0, 217, 255, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(0, 217, 255, 0);
-            }
-        }
-        
-        .glow {
-            text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section {
-                padding: 1.5rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div id="particles-js"></div>
-    
-    <div class="container">
-        <header>
-            <img src="https://avatars.githubusercontent.com/u/123456789?v=4" alt="Seher Siddiqui" class="profile-img pulse">
-            <h1>Seher Siddiqui</h1>
-            
-            <div class="typing-container">
-                <span class="typing-text" id="typing-text"></span>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://linkedin.com/in/seher-siddiqui-76041b234" class="social-link">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://sehersiddiqui.vercel.app/" class="social-link">
-                    <i class="fas fa-globe"></i>
-                </a>
-                <a href="mailto:sehersiddiqui2812@gmail.com" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://leetcode.com/sehersiddiqui28" class="social-link">
-                    <i class="fas fa-code"></i>
-                </a>
-                <a href="https://github.com/esss-28" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-        </header>
-        
-        <section class="section">
-            <h2>🚀 About Me</h2>
-            <p>I'm a passionate Machine Learning Engineer and Competitive Programmer with a knack for solving complex problems. I love pushing the boundaries of technology and contributing to innovative projects that make a difference.</p>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value" id="project-count">15+</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="leetcode-solved">250+</div>
-                    <div class="stat-label">LeetCode Problems Solved</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="hackathon-count">5+</div>
-                    <div class="stat-label">Hackathons Participated</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="contributions">500+</div>
-                    <div class="stat-label">GitHub Contributions</div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2>🛠️ Tech Stack</h2>
-            <div class="tech-stack">
-                <div class="tech-item">
-                    <i class="fab fa-python"></i> Python
-                </div>
-                <div class="tech-item">
-                    <i class="fab fa-js-square"></i> JavaScript
-                </div>
-                <div class="tech-item">
-                    <i class="fab fa-react"></i> React
-                </div>
-                <div class="tech-item">
-                    <i class="fab fa-node-js"></i> Node.js
-                </div>
-                <div class="tech-item">
-                    <i class="fab fa-css3-alt"></i> CSS3
-                </div>
-                <div class="tech-item">
-                    <i class="fab fa-git-alt"></i> Git
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-database"></i> SQL
-                </div>
-                <div class="tech-item">
-                    <i class="fas fa-brain"></i> TensorFlow
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2>📊 GitHub Statistics</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value" id="github-stars">120+</div>
-                    <div class="stat-label">GitHub Stars</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="github-forks">80+</div>
-                    <div class="stat-label">Repository Forks</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="github-commits">750+</div>
-                    <div class="stat-label">Total Commits</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="github-repos">30+</div>
-                    <div class="stat-label">Public Repositories</div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2>🏆 LeetCode Achievements</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value" id="leet-easy">150+</div>
-                    <div class="stat-label">Easy Problems</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="leet-medium">80+</div>
-                    <div class="stat-label">Medium Problems</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="leet-hard">20+</div>
-                    <div class="stat-label">Hard Problems</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="leet-rank">Top 10%</div>
-                    <div class="stat-label">Contest Rating</div>
-                </div>
-            </div>
-            
-            <div class="badge-container">
-                <div class="badge">
-                    <i class="fas fa-medal" style="color: gold;"></i>
-                    <span>50 Days Badge</span>
-                </div>
-                <div class="badge">
-                    <i class="fas fa-medal" style="color: silver;"></i>
-                    <span>100 Days Badge</span>
-                </div>
-                <div class="badge">
-                    <i class="fas fa-fire" style="color: orange;"></i>
-                    <span>Streak Icon</span>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section">
-            <h2>🚀 Hackathon Achievements</h2>
-            <table class="hackathon-table">
-                <thead>
-                    <tr>
-                        <th>Hackathon</th>
-                        <th>Track</th>
-                        <th>Achievement</th>
-                        <th>Prize</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Your First Hackathon</td>
-                        <td>Web3/AI</td>
-                        <td>Winner/Top 10</td>
-                        <td>$XXX USD</td>
-                    </tr>
-                    <tr>
-                        <td>Another Hackathon</td>
-                        <td>Education/Web3</td>
-                        <td>Community Selected</td>
-                        <td>$XXX USD</td>
-                    </tr>
-                    <tr>
-                        <td>Future Hackathon</td>
-                        <td>Open Source</td>
-                        <td>Best Project</td>
-                        <td>TBD</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        </html>
+# Hi there! 👋 I'm Seher Siddiqui
+
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00D9FF&center=true&vCenter=true&width=435&lines=Machine+Learning+Engineer;Competitive+Programmer;Problem+Solver;Research+Contributor" alt="Typing SVG" />
+</div>
+
+## 🚀 About Me
+- 🔭 Currently working on **Machine Learning Projects**
+- 🌱 Learning **Advanced Artificial Neural Networks**
+- 👯 Looking to collaborate on **Open Source Projects**
+- 💬 Ask me about **JavaScript, Python, React**
+- 📫 How to reach me: **sehersiddiqui2812@gmail.com**
+- ⚡ Fun fact: **I love participating in hackathons!**
+
+<br>
+
+## 🛠️ Tech Stack
+
+<div align="center">
+  
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+</div>
+
+<br>
+
+## ⚡ GitHub Stats
+
+<div align="center">
+
+<!-- GitHub Stats Cards -->
+<a href="https://github.com/esss-28">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=esss-28&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&include_all_commits=true&count_private=true" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=esss-28&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" />
+</a>
+
+<!-- GitHub Streak Stats -->
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=esss-28&theme=tokyonight&hide_border=true&background=0D1117)](https://git.io/streak-stats)
+
+<!-- GitHub Trophy -->
+[![trophy](https://github-profile-trophy.vercel.app/?username=esss-28&theme=tokyonight&no-frame=true&column=7)](https://github.com/ryo-ma/github-profile-trophy)
+
+<!-- GitHub Activity Graph -->
+[![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=esss-28&bg_color=0d1117&color=00d9ff&line=00d9ff&point=ffffff&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
+
+</div>
+
+<br>
+
+## 🏆 LeetCode & Competitive Programming
+
+<div align="center">
+
+<!-- LeetCode Stats -->
+[![LeetCode user sehersiddiqui28](https://img.shields.io/badge/dynamic/json?style=for-the-badge&labelColor=black&color=ffa116&label=Solved&query=solved&url=https%3A%2F%2Fleetcode-badge.vercel.app%2Fapi%2Fusers%2Fsehersiddiqui28&logo=leetcode&logoColor=ffa116)](https://leetcode.com/sehersiddiqui28/)
+[![LeetCode user sehersiddiqui28](https://img.shields.io/badge/dynamic/json?style=for-the-badge&labelColor=black&color=ffa116&label=Ranking&query=ranking&url=https%3A%2F%2Fleetcode-badge.vercel.app%2Fapi%2Fusers%2Fsehersiddiqui28&logo=leetcode&logoColor=ffa116)](https://leetcode.com/sehersiddiqui28/)
+
+<!-- LeetCode Badges Showcase -->
+[![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=sehersiddiqui28&theme=dark)](https://leetcode.com/sehersiddiqui28/)
+
+</div>
+
+<br>
+
+## 🎯 Hackathon Achievements
+
+<div align="center">
+  
+| # | Hackathon | Track | Achievement | Prize |
+|---|-----------|-------|-------------|--------|
+| 1 | Your First Hackathon | Web3/AI | Winner/Top 10 | $XXX USD |
+| 2 | Another Hackathon | Education/Web3 | Community Selected | $XXX USD |
+| 3 | Future Hackathon | Open Source | Best Project | TBD |
+
+</div>
+
+<br>
+
+## 📊 Weekly Development Breakdown
+
+<!--START_SECTION:waka-->
+![Code Time](http://img.shields.io/badge/Code%20Time-1,234%20hrs%2027%20mins-blue)
+![Lines of code](https://img.shields.io/badge/From%20Hello%20World%20I%27ve%20Written-1.5%20million%20lines%20of%20code-blue)
+<!--END_SECTION:waka-->
+
+<br>
+
+## 🔥 Recent GitHub Activity
+
+<!--START_SECTION:activity-->
+1. 🎉 Merged PR [#12](https://github.com/esss-28/project/pull/12) in [esss-28/project](https://github.com/esss-28/project)
+2. 💪 Opened PR [#11](https://github.com/esss-28/project/pull/11) in [esss-28/project](https://github.com/esss-28/project)
+3. 🚀 Pushed 5 commits to [esss-28/project](https://github.com/esss-28/project)
+4. ❗️ Closed issue [#7](https://github.com/esss-28/project/issues/7) in [esss-28/project](https://github.com/esss-28/project)
+5. 🎉 Merged PR [#10](https://github.com/esss-28/project/pull/10) in [esss-28/project](https://github.com/esss-28/project)
+<!--END_SECTION:activity-->
+
+<br>
+
+## 📈 GitHub Metrics
+
+![Metrics](https://metrics.lecoq.io/esss-28?template=classic&base=header%2C%20activity%2C%20community%2C%20repositories%2C%20metadata&base.indepth=false&base.hireable=false&base.skip=false&config.timezone=Asia%2FKarachi)
+
+<br>
+
+## 📫 Connect with me
+
+<div align="center">
+  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/seher-siddiqui-76041b234)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sehersiddiqui.vercel.app/)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sehersiddiqui2812@gmail.com)
+[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/sehersiddiqui28)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yourprofile)
+[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)](https://www.kaggle.com/yourprofile)
+
+</div>
+
+<br>
+
+---
+
+<div align="center">
+  
+### Show some ❤️ by starring some of my repositories!
+
+![Profile Views](https://komarev.com/ghpvc/?username=esss-28&color=blueviolet&style=flat-square&label=Profile+Views)
+
+</div>
