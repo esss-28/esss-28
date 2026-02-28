@@ -1,7 +1,7 @@
 # Hi there! 👋 I'm Seher Siddiqui
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00D9FF&center=true&vCenter=true&width=435&lines=Machine+Learning+Engineer;Competitive+Programmer;Problem+Solver;Research+Contributor" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00D9FF&center=true&vCenter=true&width=435&lines=Machine+Learning+Engineer;Competitive+Programmer;Research+Contributor" alt="Typing SVG" />
 </div>
 
 ## 🚀 About Me
